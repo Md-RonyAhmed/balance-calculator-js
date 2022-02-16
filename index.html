@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="image/calculator.png" type="image/x-icon" />
+    <title>Balance Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h1 class="text-5xl font-bold text-[#31A5AC] text-center font-mono mt-4">
+      Balance Calculator <i class="fa-solid fa-file-invoice-dollar"></i>
+    </h1>
+    <!-- main section -->
+    <main class="container mx-auto w-3/4 mt-8">
+      <section class="mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <img class="rounded" src="image/calculate.jpg" alt="calculate" />
+          </div>
+          <div class="bg-[#F8F8F8] p-6 rounded">
+            <!-- income  -->
+            <h1 class="text-2xl text-center font-bold mb-4">Income</h1>
+            <label for="text"
+              >Income:
+              <input
+                class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
+                type="text"
+                id=""
+                placeholder="$0.00"
+              />
+            </label>
+            <h1 class="text-2xl text-center font-bold my-4">Expenses</h1>
+           <div class="mb-4">
+              <label for="text" class="ml-4"
+              >Food:  
+              <input
+                class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
+                type="text"
+                id=""
+                placeholder="$0.00"
+              />
+            </label>
+           </div>
+            <div class="mb-4">
+              <label for="text" class="ml-5"
+              >Rent:  
+              <input
+                class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
+                type="text"
+                id=""
+                placeholder="$0.00"
+              />
+            </label>
+            </div>
+            <div class="mb-4">
+              <label for="text"
+              >Clothes:  
+              <input
+                class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
+                type="text"
+                id=""
+                placeholder="$0.00"
+              />
+            </label>
+            </div>
+             <div class="text-center my-6">
+               <button
+            id="deposit-btn"
+            class="bg-[#59A5FF] px-6 rounded py-2 text-white font-medium"
+          >
+            Calculate
+          </button>
+          <h1 class="text-2xl text-center font-bold my-4">Expenses</h1>
+             </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
