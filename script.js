@@ -7,21 +7,37 @@ function getInputValue(expense) {
 }
 
 
-function updateTotalExpense(foodValue, rentValue, clothValue) {
-  const sum = foodValue + rentValue + clothValue;
-  const expenseText = document.getElementById('total-expense');
-  const totalExp = expenseText.innerText;
-  const totalExpense = parseFloat(totalExp);
-  expenseText.innerText = sum;
-  return sum;
+function updateTotalExpense(isTrue, foodValue, rentValue, clothValue) {
+  if (isTrue == true) {
+    const sum = foodValue + rentValue + clothValue;
+    const expenseText = document.getElementById('total-expense');
+    const totalExp = expenseText.innerText;
+    const totalExpense = parseFloat(totalExp);
+    expenseText.innerText = sum;
+    return sum; 
+  } else {
+    const expenseText = document.getElementById('total-expense');
+    const totalExp = expenseText.innerText;
+    const totalExpense = parseFloat(totalExp);
+    expenseText.innerText = 0;
+  }
 }
 
-function updateTotalBalance(incomeValue,sum) {
-  const balanceText = document.getElementById('balance-amount');
-  const balance = balanceText.innerText;
-  const totalBalance = parseFloat(balance);
-  const total = incomeValue - sum;
-  balanceText.innerText = total;
+function updateTotalBalance(isTrue,incomeValue,sum) {
+  if (isTrue == true) {
+    const balanceText = document.getElementById('balance-amount');
+    const balance = balanceText.innerText;
+    const totalBalance = parseFloat(balance);
+    const total = incomeValue - sum;
+    balanceText.innerText = total;
+  } else {
+    const balanceText = document.getElementById('balance-amount');
+    const balance = balanceText.innerText;
+    const totalBalance = parseFloat(balance);
+    const total = incomeValue - sum;
+    balanceText.innerText = 0;
+  }
+  
 }
 
 document.getElementById('calculate-btn').addEventListener('click', function () {
@@ -32,11 +48,13 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
   const success = document.getElementById('notify-success');
   const error = document.getElementById('notify-fail');
   if (incomeInput >= 0 && foodInput >= 0 && rentInput >= 0 && clothInput >= 0) {
-    const sum = updateTotalExpense(foodInput, rentInput, clothInput);
-    if (incomeInput > sum) {
-      updateTotalBalance(incomeInput, sum);
-    } else {
+    const sum = updateTotalExpense(true,foodInput, rentInput, clothInput);
+    if (incomeInput < sum) {
       alert("Total expenses can't be greater than Total income...")
+      updateTotalExpense(false, foodInput, rentInput, clothInput);
+      updateTotalBalance(false, incomeInput, sum);
+    } else {
+      updateTotalBalance(true,incomeInput, sum);
     }
     success.style.display = 'block';
     error.style.display = 'none';
