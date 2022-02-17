@@ -29,11 +29,20 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
   const foodInput = getInputValue('food');
   const rentInput = getInputValue('rent');
   const clothInput = getInputValue('cloth');
+  const success = document.getElementById('notify-success');
+  const error = document.getElementById('notify-fail');
   if (incomeInput >= 0 && foodInput >= 0 && rentInput >= 0 && clothInput >= 0) {
     const sum = updateTotalExpense(foodInput, rentInput, clothInput);
-    updateTotalBalance(incomeInput, sum);
+    if (incomeInput > sum) {
+      updateTotalBalance(incomeInput, sum);
+    } else {
+      alert("Total expenses can't be greater than Total income...")
+    }
+    success.style.display = 'block';
+    error.style.display = 'none';
   } else {
-    
+    error.style.display = 'block';
+    success.style.display = 'none';
   }
 
 });

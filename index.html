@@ -123,9 +123,20 @@
         </div>
       </section>
       <!-- error section  -->
-    <section class="pb-8">
-      <p id="notify-fail" class="bg-red-400 w-1/2 ml-auto hidden px-6 py-2 rounded text-white font-medium">❌ Pin Didn't Match, Please try again</p>
-    </section>
+      <section class="pb-8">
+        <p
+          id="notify-success"
+          class="bg-green-400 w-1/2 hidden sm:mr-16 sm:hidden mx-auto px-6 py-2 rounded text-white font-medium"
+        >
+          ✅ Successfully calculated your balance...
+        </p>
+        <p
+          id="notify-fail"
+          class="bg-red-400 w-1/2 mx-auto m-6 sm:ml-16 hidden sm:hidden px-6 py-2 rounded text-white font-medium"
+        >
+          ❌ Can't submit null values and negative values...Please try again.
+        </p>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>
