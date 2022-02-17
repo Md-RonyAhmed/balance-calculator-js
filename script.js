@@ -67,10 +67,13 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
   const success = document.getElementById('notify-success');
   const error = document.getElementById('notify-fail');
   //handling error
+  if (isNaN(incomeInput) == true || isNaN(foodInput) == true || isNaN(rentInput) == true || isNaN(clothInput) == true) {
+    alert('Please enter only positive numbers');
+  }
   if (incomeInput >= 0 && foodInput >= 0 && rentInput >= 0 && clothInput >= 0) {
     const sum = updateTotalExpense(true,foodInput, rentInput, clothInput);
     if (incomeInput < sum) {
-      alert("Total expenses can't be greater than Total income...")
+      alert("Total expenses can't be greater than Total income...");
       updateTotalExpense(false, foodInput, rentInput, clothInput);
       updateTotalBalance(false, incomeInput, sum);
     } else {
@@ -90,23 +93,31 @@ document.getElementById('save-btn').addEventListener('click', function () {
   //calculate saving amount
   const discountInput = getInputValue('save');
   const incomeInput = getInputValue('income');
-  const savingAmount = (incomeInput * discountInput) / 100;
-  const savingText = document.getElementById('saving-amount');
-  const saving = savingText.innerText;
-  const totalSaving = parseFloat(saving);
- // calculate totalSaving amount
-  const foodInput = getInputValue('food');
-  const rentInput = getInputValue('rent');
-  const clothInput = getInputValue('cloth');
-  const sum = updateTotalExpense(true, foodInput, rentInput, clothInput);
-  const totalSavingAmount = updateTotalBalance(true, incomeInput, sum);
-  // calculate remaining balance
-  const remainBalanceText = document.getElementById('remaining-balance');
-  const remain = remainBalanceText.innerText;
-  const balanceSaving = parseFloat(remain);
-  const totalBalanceSave = totalSavingAmount - savingAmount; 
-  remainBalanceText.innerText = totalBalanceSave;
-  savingText.innerText = savingAmount;
+  if (isNaN(discountInput) == true) {
+    alert('Please enter only positive numbers not strings');
+  }
+  if (discountInput < 0) {
+    alert('Please enter only positive amount of discount');
+  } else {
+    const savingAmount = (incomeInput * discountInput) / 100;
+    const savingText = document.getElementById('saving-amount');
+    const saving = savingText.innerText;
+    const totalSaving = parseFloat(saving);
+    // calculate totalSaving amount
+    const foodInput = getInputValue('food');
+    const rentInput = getInputValue('rent');
+    const clothInput = getInputValue('cloth');
+    const sum = updateTotalExpense(true, foodInput, rentInput, clothInput);
+    const totalSavingAmount = updateTotalBalance(true, incomeInput, sum);
+    // calculate remaining balance
+    const remainBalanceText = document.getElementById('remaining-balance');
+    const remain = remainBalanceText.innerText;
+    const balanceSaving = parseFloat(remain);
+    const totalBalanceSave = totalSavingAmount - savingAmount;
+    remainBalanceText.innerText = totalBalanceSave;
+    savingText.innerText = savingAmount;
+  }
+  
   // clear the all input field
   clearInput();
   
