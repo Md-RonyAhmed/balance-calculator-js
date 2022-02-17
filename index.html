@@ -39,7 +39,7 @@
               <input
                 class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
                 type="text"
-                id=""
+                id="income-input"
                 placeholder="$00"
               />
             </label>
@@ -51,7 +51,7 @@
                 <input
                   class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
                   type="text"
-                  id=""
+                  id="food-input"
                   placeholder="$00"
                 />
               </label>
@@ -62,7 +62,7 @@
                 <input
                   class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
                   type="text"
-                  id=""
+                  id="rent-input"
                   placeholder="$00"
                 />
               </label>
@@ -73,7 +73,7 @@
                 <input
                   class="p-1 border w-3/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white mx-auto"
                   type="text"
-                  id=""
+                  id="cloth-input"
                   placeholder="$00"
                 />
               </label>
@@ -81,16 +81,16 @@
             <!-- calculate total  -->
             <div class="text-center my-6">
               <button
-                id="deposit-btn"
+                id="calculate-btn"
                 class="bg-[#59A5FF] px-6 rounded py-2 text-white font-medium"
               >
                 Calculate
               </button>
               <h1 class="text-2xl text-center font-bold my-4">
-                Total Expenses: $<span>00</span>
+                Total Expenses: $<span id="total-expense">00</span>
               </h1>
               <h1 class="text-2xl text-center font-bold my-4">
-                Balance: $<span>00</span>
+                Balance: $<span id="balance-amount">00</span>
               </h1>
             </div>
             <div class="my-4 text-center">
@@ -99,13 +99,13 @@
                 <input
                   class="p-2 border w-1/4 rounded ml-2 bg-[#dcdcdc] focus:bg-white"
                   type="text"
-                  id=""
+                  id="save-input"
                   placeholder="00"
                 />
                 <span>%</span>
               </label>
               <button
-                id="deposit-btn"
+                id="save-btn"
                 class="bg-[#59A5FF] px-6 mx-4 rounded py-2 text-white font-medium"
               >
                 Save
@@ -113,10 +113,10 @@
             </div>
             <div>
               <h1 class="text-2xl text-center font-bold my-2">
-                Saving Amount: $<span>00</span>
+                Saving Amount: $<span id="saving-amount">00</span>
               </h1>
               <h1 class="text-2xl text-center font-bold mb-4">
-                Remaining Balance: $<span>00</span>
+                Remaining Balance: $<span id="remaining-balance">00</span>
               </h1>
             </div>
           </div>
